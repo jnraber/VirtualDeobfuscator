@@ -1,0 +1,163 @@
+<root>
+<ins>0<thread>main</thread><va>004113A0</va><mnem>PUSH EBP</mnem><regs>[0018FF30]=5970BF1C (MSVCR90D._initterm+1C);ESP=0018FF30 </regs></ins>
+<ins>1<thread>main</thread><va>004113A1</va><mnem>MOV EBP,ESP</mnem><regs>EBP=0018FF30 </regs></ins>
+<ins>2<thread>main</thread><va>004113A3</va><mnem>SUB ESP,0F0</mnem><regs>ESP=0018FE40 </regs></ins>
+<ins>3<thread>main</thread><va>004113A9</va><mnem>PUSH EBX</mnem><regs>[0018FE3C]=MSVCR90D.5970E670;ESP=0018FE3C </regs></ins>
+<ins>4<thread>main</thread><va>004113AA</va><mnem>PUSH ESI</mnem><regs>[0018FE38]=0018FE4C ESP=0018FE38 </regs></ins>
+<ins>5<thread>main</thread><va>004113AB</va><mnem>PUSH EDI</mnem><regs>[0018FE34]=762B123D (kernel32.FlsGetValue);ESP=0018FE34 </regs></ins>
+<ins>6<thread>main</thread><va>004113AC</va><mnem>LEA EDI,[LOCAL.60]</mnem><regs>Address=0018FE40 EDI=0018FE40 </regs></ins>
+<ins>7<thread>main</thread><va>004113B2</va><mnem>MOV ECX,3C</mnem><regs>ECX=0000003C </regs></ins>
+<ins>8<thread>main</thread><va>004113B7</va><mnem>MOV EAX,CCCCCCCC</mnem><regs>EAX=CCCCCCCC </regs></ins>
+<ins>9<thread>main</thread><va>004113BC</va><mnem>REP STOS DWORD PTR ES:[EDI]</mnem><regs>[0018FE40]=0 ECX=00000000, EDI=0018FF30 </regs></ins>
+<ins>10<thread>main</thread><va>004113BE</va><mnem>MOV DWORD PTR SS:[LOCAL.2],0</mnem><regs>[0018FF28]=CCCCCCCC </regs></ins>
+<ins>11<thread>main</thread><va>004113C5</va><mnem>MOV DWORD PTR SS:[LOCAL.5],0</mnem><regs>[0018FF1C]=CCCCCCCC </regs></ins>
+<ins>12<thread>main</thread><va>004113CC</va><mnem>MOV DWORD PTR SS:[LOCAL.8],0</mnem><regs>[0018FF10]=CCCCCCCC </regs></ins>
+<ins>13<thread>main</thread><va>004113D3</va><mnem>JMP SHORT 004113DE</mnem><regs>None</regs></ins>
+<ins>14<thread>main</thread><va>004113DE</va><mnem>CMP DWORD PTR SS:[LOCAL.8],4</mnem><regs>[0018FF10]=0 </regs></ins>
+<ins>15<thread>main</thread><va>004113E2</va><mnem>JGE SHORT 00411427</mnem><regs>None</regs></ins>
+<ins>16<thread>main</thread><va>004113E4</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=0 EAX=00000000 </regs></ins>
+<ins>17<thread>main</thread><va>004113E7</va><mnem>ADD EAX,DWORD PTR SS:[LOCAL.8]</mnem><regs>[0018FF10]=0 </regs></ins>
+<ins>18<thread>main</thread><va>004113EA</va><mnem>MOV DWORD PTR SS:[LOCAL.2],EAX</mnem><regs>[0018FF28]=0 </regs></ins>
+<ins>19<thread>main</thread><va>004113ED</va><mnem>MOV DWORD PTR SS:[LOCAL.11],0</mnem><regs>[0018FF04]=CCCCCCCC </regs></ins>
+<ins>20<thread>main</thread><va>004113F4</va><mnem>JMP SHORT 004113FF</mnem><regs>None</regs></ins>
+<ins>21<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>22<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>23<thread>main</thread><va>00411405</va><mnem>CMP DWORD PTR SS:[LOCAL.8],2</mnem><regs>[0018FF10]=0 </regs></ins>
+<ins>24<thread>main</thread><va>00411409</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>25<thread>main</thread><va>00411416</va><mnem>JMP SHORT 004113F6</mnem><regs>None</regs></ins>
+<ins>26<thread>main</thread><va>004113F6</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.11]</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>27<thread>main</thread><va>004113F9</va><mnem>ADD EAX,1</mnem><regs>EAX=00000001 </regs></ins>
+<ins>28<thread>main</thread><va>004113FC</va><mnem>MOV DWORD PTR SS:[LOCAL.11],EAX</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>29<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>30<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>31<thread>main</thread><va>00411405</va><mnem>CMP DWORD PTR SS:[LOCAL.8],2</mnem><regs>[0018FF10]=0 </regs></ins>
+<ins>32<thread>main</thread><va>00411409</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>33<thread>main</thread><va>00411416</va><mnem>JMP SHORT 004113F6</mnem><regs>None</regs></ins>
+<ins>34<thread>main</thread><va>004113F6</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.11]</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>35<thread>main</thread><va>004113F9</va><mnem>ADD EAX,1</mnem><regs>EAX=00000002 </regs></ins>
+<ins>36<thread>main</thread><va>004113FC</va><mnem>MOV DWORD PTR SS:[LOCAL.11],EAX</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>37<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=2 </regs></ins>
+<ins>38<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>39<thread>main</thread><va>00411418</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=0 EAX=00000000 </regs></ins>
+<ins>40<thread>main</thread><va>0041141B</va><mnem>MOV ECX,DWORD PTR SS:[LOCAL.5]</mnem><regs>[0018FF1C]=0 </regs></ins>
+<ins>41<thread>main</thread><va>0041141E</va><mnem>LEA EDX,[EAX+ECX+1]</mnem><regs>None</regs></ins>
+<ins>42<thread>main</thread><va>00411422</va><mnem>MOV DWORD PTR SS:[LOCAL.5],EDX</mnem><regs>[0018FF1C]=0 </regs></ins>
+<ins>43<thread>main</thread><va>00411425</va><mnem>JMP SHORT 004113D5</mnem><regs>None</regs></ins>
+<ins>44<thread>main</thread><va>004113D5</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.8]</mnem><regs>[0018FF10]=0 </regs></ins>
+<ins>45<thread>main</thread><va>004113D8</va><mnem>ADD EAX,1</mnem><regs>EAX=00000001 </regs></ins>
+<ins>46<thread>main</thread><va>004113DB</va><mnem>MOV DWORD PTR SS:[LOCAL.8],EAX</mnem><regs>[0018FF10]=0 </regs></ins>
+<ins>47<thread>main</thread><va>004113DE</va><mnem>CMP DWORD PTR SS:[LOCAL.8],4</mnem><regs>[0018FF10]=1 </regs></ins>
+<ins>48<thread>main</thread><va>004113E2</va><mnem>JGE SHORT 00411427</mnem><regs>None</regs></ins>
+<ins>49<thread>main</thread><va>004113E4</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=0 EAX=00000000 </regs></ins>
+<ins>50<thread>main</thread><va>004113E7</va><mnem>ADD EAX,DWORD PTR SS:[LOCAL.8]</mnem><regs>[0018FF10]=1 EAX=00000001 </regs></ins>
+<ins>51<thread>main</thread><va>004113EA</va><mnem>MOV DWORD PTR SS:[LOCAL.2],EAX</mnem><regs>[0018FF28]=0 </regs></ins>
+<ins>52<thread>main</thread><va>004113ED</va><mnem>MOV DWORD PTR SS:[LOCAL.11],0</mnem><regs>[0018FF04]=2 </regs></ins>
+<ins>53<thread>main</thread><va>004113F4</va><mnem>JMP SHORT 004113FF</mnem><regs>None</regs></ins>
+<ins>54<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>55<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>56<thread>main</thread><va>00411405</va><mnem>CMP DWORD PTR SS:[LOCAL.8],2</mnem><regs>[0018FF10]=1 </regs></ins>
+<ins>57<thread>main</thread><va>00411409</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>58<thread>main</thread><va>00411416</va><mnem>JMP SHORT 004113F6</mnem><regs>None</regs></ins>
+<ins>59<thread>main</thread><va>004113F6</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.11]</mnem><regs>[0018FF04]=0 EAX=00000000 </regs></ins>
+<ins>60<thread>main</thread><va>004113F9</va><mnem>ADD EAX,1</mnem><regs>EAX=00000001 </regs></ins>
+<ins>61<thread>main</thread><va>004113FC</va><mnem>MOV DWORD PTR SS:[LOCAL.11],EAX</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>62<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>63<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>64<thread>main</thread><va>00411405</va><mnem>CMP DWORD PTR SS:[LOCAL.8],2</mnem><regs>[0018FF10]=1 </regs></ins>
+<ins>65<thread>main</thread><va>00411409</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>66<thread>main</thread><va>00411416</va><mnem>JMP SHORT 004113F6</mnem><regs>None</regs></ins>
+<ins>67<thread>main</thread><va>004113F6</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.11]</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>68<thread>main</thread><va>004113F9</va><mnem>ADD EAX,1</mnem><regs>EAX=00000002 </regs></ins>
+<ins>69<thread>main</thread><va>004113FC</va><mnem>MOV DWORD PTR SS:[LOCAL.11],EAX</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>70<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=2 </regs></ins>
+<ins>71<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>72<thread>main</thread><va>00411418</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=1 EAX=00000001 </regs></ins>
+<ins>73<thread>main</thread><va>0041141B</va><mnem>MOV ECX,DWORD PTR SS:[LOCAL.5]</mnem><regs>[0018FF1C]=1 ECX=00000001 </regs></ins>
+<ins>74<thread>main</thread><va>0041141E</va><mnem>LEA EDX,[EAX+ECX+1]</mnem><regs>EDX=00000003 </regs></ins>
+<ins>75<thread>main</thread><va>00411422</va><mnem>MOV DWORD PTR SS:[LOCAL.5],EDX</mnem><regs>[0018FF1C]=1 </regs></ins>
+<ins>76<thread>main</thread><va>00411425</va><mnem>JMP SHORT 004113D5</mnem><regs>None</regs></ins>
+<ins>77<thread>main</thread><va>004113D5</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.8]</mnem><regs>[0018FF10]=1 </regs></ins>
+<ins>78<thread>main</thread><va>004113D8</va><mnem>ADD EAX,1</mnem><regs>EAX=00000002 </regs></ins>
+<ins>79<thread>main</thread><va>004113DB</va><mnem>MOV DWORD PTR SS:[LOCAL.8],EAX</mnem><regs>[0018FF10]=1 </regs></ins>
+<ins>80<thread>main</thread><va>004113DE</va><mnem>CMP DWORD PTR SS:[LOCAL.8],4</mnem><regs>[0018FF10]=2 </regs></ins>
+<ins>81<thread>main</thread><va>004113E2</va><mnem>JGE SHORT 00411427</mnem><regs>None</regs></ins>
+<ins>82<thread>main</thread><va>004113E4</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=1 EAX=00000001 </regs></ins>
+<ins>83<thread>main</thread><va>004113E7</va><mnem>ADD EAX,DWORD PTR SS:[LOCAL.8]</mnem><regs>[0018FF10]=2 EAX=00000003 </regs></ins>
+<ins>84<thread>main</thread><va>004113EA</va><mnem>MOV DWORD PTR SS:[LOCAL.2],EAX</mnem><regs>[0018FF28]=1 </regs></ins>
+<ins>85<thread>main</thread><va>004113ED</va><mnem>MOV DWORD PTR SS:[LOCAL.11],0</mnem><regs>[0018FF04]=2 </regs></ins>
+<ins>86<thread>main</thread><va>004113F4</va><mnem>JMP SHORT 004113FF</mnem><regs>None</regs></ins>
+<ins>87<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>88<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>89<thread>main</thread><va>00411405</va><mnem>CMP DWORD PTR SS:[LOCAL.8],2</mnem><regs>[0018FF10]=2 </regs></ins>
+<ins>90<thread>main</thread><va>00411409</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>91<thread>main</thread><va>0041140B</va><mnem>CMP DWORD PTR SS:[LOCAL.11],1</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>92<thread>main</thread><va>0041140F</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>93<thread>main</thread><va>00411416</va><mnem>JMP SHORT 004113F6</mnem><regs>None</regs></ins>
+<ins>94<thread>main</thread><va>004113F6</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.11]</mnem><regs>[0018FF04]=0 EAX=00000000 </regs></ins>
+<ins>95<thread>main</thread><va>004113F9</va><mnem>ADD EAX,1</mnem><regs>EAX=00000001 </regs></ins>
+<ins>96<thread>main</thread><va>004113FC</va><mnem>MOV DWORD PTR SS:[LOCAL.11],EAX</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>97<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>98<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>99<thread>main</thread><va>00411405</va><mnem>CMP DWORD PTR SS:[LOCAL.8],2</mnem><regs>[0018FF10]=2 </regs></ins>
+<ins>100<thread>main</thread><va>00411409</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>101<thread>main</thread><va>0041140B</va><mnem>CMP DWORD PTR SS:[LOCAL.11],1</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>102<thread>main</thread><va>0041140F</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>103<thread>main</thread><va>00411411</va><mnem>MOV EAX,DEADBEEF</mnem><regs>EAX=DEADBEEF </regs></ins>
+<ins>104<thread>main</thread><va>00411416</va><mnem>JMP SHORT 004113F6</mnem><regs>None</regs></ins>
+<ins>105<thread>main</thread><va>004113F6</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.11]</mnem><regs>[0018FF04]=1 EAX=00000001 </regs></ins>
+<ins>106<thread>main</thread><va>004113F9</va><mnem>ADD EAX,1</mnem><regs>EAX=00000002 </regs></ins>
+<ins>107<thread>main</thread><va>004113FC</va><mnem>MOV DWORD PTR SS:[LOCAL.11],EAX</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>108<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=2 </regs></ins>
+<ins>109<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>110<thread>main</thread><va>00411418</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=3 EAX=00000003 </regs></ins>
+<ins>111<thread>main</thread><va>0041141B</va><mnem>MOV ECX,DWORD PTR SS:[LOCAL.5]</mnem><regs>[0018FF1C]=3 ECX=00000003 </regs></ins>
+<ins>112<thread>main</thread><va>0041141E</va><mnem>LEA EDX,[EAX+ECX+1]</mnem><regs>EDX=00000007 </regs></ins>
+<ins>113<thread>main</thread><va>00411422</va><mnem>MOV DWORD PTR SS:[LOCAL.5],EDX</mnem><regs>[0018FF1C]=3 </regs></ins>
+<ins>114<thread>main</thread><va>00411425</va><mnem>JMP SHORT 004113D5</mnem><regs>None</regs></ins>
+<ins>115<thread>main</thread><va>004113D5</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.8]</mnem><regs>[0018FF10]=2 EAX=00000002 </regs></ins>
+<ins>116<thread>main</thread><va>004113D8</va><mnem>ADD EAX,1</mnem><regs>EAX=00000003 </regs></ins>
+<ins>117<thread>main</thread><va>004113DB</va><mnem>MOV DWORD PTR SS:[LOCAL.8],EAX</mnem><regs>[0018FF10]=2 </regs></ins>
+<ins>118<thread>main</thread><va>004113DE</va><mnem>CMP DWORD PTR SS:[LOCAL.8],4</mnem><regs>[0018FF10]=3 </regs></ins>
+<ins>119<thread>main</thread><va>004113E2</va><mnem>JGE SHORT 00411427</mnem><regs>None</regs></ins>
+<ins>120<thread>main</thread><va>004113E4</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=3 </regs></ins>
+<ins>121<thread>main</thread><va>004113E7</va><mnem>ADD EAX,DWORD PTR SS:[LOCAL.8]</mnem><regs>[0018FF10]=3 EAX=00000006 </regs></ins>
+<ins>122<thread>main</thread><va>004113EA</va><mnem>MOV DWORD PTR SS:[LOCAL.2],EAX</mnem><regs>[0018FF28]=3 </regs></ins>
+<ins>123<thread>main</thread><va>004113ED</va><mnem>MOV DWORD PTR SS:[LOCAL.11],0</mnem><regs>[0018FF04]=2 </regs></ins>
+<ins>124<thread>main</thread><va>004113F4</va><mnem>JMP SHORT 004113FF</mnem><regs>None</regs></ins>
+<ins>125<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>126<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>127<thread>main</thread><va>00411405</va><mnem>CMP DWORD PTR SS:[LOCAL.8],2</mnem><regs>[0018FF10]=3 </regs></ins>
+<ins>128<thread>main</thread><va>00411409</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>129<thread>main</thread><va>00411416</va><mnem>JMP SHORT 004113F6</mnem><regs>None</regs></ins>
+<ins>130<thread>main</thread><va>004113F6</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.11]</mnem><regs>[0018FF04]=0 EAX=00000000 </regs></ins>
+<ins>131<thread>main</thread><va>004113F9</va><mnem>ADD EAX,1</mnem><regs>EAX=00000001 </regs></ins>
+<ins>132<thread>main</thread><va>004113FC</va><mnem>MOV DWORD PTR SS:[LOCAL.11],EAX</mnem><regs>[0018FF04]=0 </regs></ins>
+<ins>133<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>134<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>135<thread>main</thread><va>00411405</va><mnem>CMP DWORD PTR SS:[LOCAL.8],2</mnem><regs>[0018FF10]=3 </regs></ins>
+<ins>136<thread>main</thread><va>00411409</va><mnem>JNE SHORT 00411416</mnem><regs>None</regs></ins>
+<ins>137<thread>main</thread><va>00411416</va><mnem>JMP SHORT 004113F6</mnem><regs>None</regs></ins>
+<ins>138<thread>main</thread><va>004113F6</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.11]</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>139<thread>main</thread><va>004113F9</va><mnem>ADD EAX,1</mnem><regs>EAX=00000002 </regs></ins>
+<ins>140<thread>main</thread><va>004113FC</va><mnem>MOV DWORD PTR SS:[LOCAL.11],EAX</mnem><regs>[0018FF04]=1 </regs></ins>
+<ins>141<thread>main</thread><va>004113FF</va><mnem>CMP DWORD PTR SS:[LOCAL.11],2</mnem><regs>[0018FF04]=2 </regs></ins>
+<ins>142<thread>main</thread><va>00411403</va><mnem>JGE SHORT 00411418</mnem><regs>None</regs></ins>
+<ins>143<thread>main</thread><va>00411418</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=6 EAX=00000006 </regs></ins>
+<ins>144<thread>main</thread><va>0041141B</va><mnem>MOV ECX,DWORD PTR SS:[LOCAL.5]</mnem><regs>[0018FF1C]=7 ECX=00000007 </regs></ins>
+<ins>145<thread>main</thread><va>0041141E</va><mnem>LEA EDX,[EAX+ECX+1]</mnem><regs>EDX=0000000E </regs></ins>
+<ins>146<thread>main</thread><va>00411422</va><mnem>MOV DWORD PTR SS:[LOCAL.5],EDX</mnem><regs>[0018FF1C]=7 </regs></ins>
+<ins>147<thread>main</thread><va>00411425</va><mnem>JMP SHORT 004113D5</mnem><regs>None</regs></ins>
+<ins>148<thread>main</thread><va>004113D5</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.8]</mnem><regs>[0018FF10]=3 EAX=00000003 </regs></ins>
+<ins>149<thread>main</thread><va>004113D8</va><mnem>ADD EAX,1</mnem><regs>EAX=00000004 </regs></ins>
+<ins>150<thread>main</thread><va>004113DB</va><mnem>MOV DWORD PTR SS:[LOCAL.8],EAX</mnem><regs>[0018FF10]=3 </regs></ins>
+<ins>151<thread>main</thread><va>004113DE</va><mnem>CMP DWORD PTR SS:[LOCAL.8],4</mnem><regs>[0018FF10]=4 </regs></ins>
+<ins>152<thread>main</thread><va>004113E2</va><mnem>JGE SHORT 00411427</mnem><regs>None</regs></ins>
+<ins>153<thread>main</thread><va>00411427</va><mnem>MOV ESI,ESP</mnem><regs>ESI=0018FE34 </regs></ins>
+<ins>154<thread>main</thread><va>00411429</va><mnem>MOV EAX,DWORD PTR SS:[LOCAL.5]</mnem><regs>[0018FF1C]=0000000E (decimal 14.);EAX=0000000E </regs></ins>
+<ins>155<thread>main</thread><va>0041142C</va><mnem>PUSH EAX</mnem><regs>[0018FE30]=2 ESP=0018FE30 </regs></ins>
+<ins>156<thread>main</thread><va>0041142D</va><mnem>MOV ECX,DWORD PTR SS:[LOCAL.2]</mnem><regs>[0018FF28]=6 ECX=00000006 </regs></ins>
+<ins>157<thread>main</thread><va>00411430</va><mnem>PUSH ECX</mnem><regs>[0018FE2C]=5970E182 (MSVCR90D.__set_flsgetvalue+12);ESP=0018FE2C </regs></ins>
+<ins>158<thread>main</thread><va>00411431</va><mnem>PUSH OFFSET 0041573C</mnem><regs>[0018FE28]=0018FE38 ESP=0018FE28 </regs></ins>
+<ins>159<thread>main</thread><va>00411436</va><mnem>CALL DWORD PTR DS:[MSVCR90D.printf]</mnem><regs>[004182BC]=5972AFA0 (MSVCR90D.printf);ESP=0018FE24 </regs></ins>
+<ins>160<thread>main</thread><va>printf</va><mnem>MOV EDI,EDI</mnem><regs>None</regs></ins>
+</root>

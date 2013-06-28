@@ -1,0 +1,32 @@
+004113A0 PUSH EBP                      ;[0018FF30]=5970BF1C (MSVCR90D._initterm+1C);ESP=0018FF30 
+004113A1 MOV EBP,ESP                   ;EBP=0018FF30 
+004113A3 SUB ESP,0F0                   ;ESP=0018FE40 
+004113A9 PUSH EBX                      ;[0018FE3C]=MSVCR90D.5970E670;ESP=0018FE3C 
+004113AA PUSH ESI                      ;[0018FE38]=0018FE4C ESP=0018FE38 
+004113AB PUSH EDI                      ;[0018FE34]=762B123D (kernel32.FlsGetValue);ESP=0018FE34 
+004113AC LEA EDI,[LOCAL.60]            ;Address=0018FE40 EDI=0018FE40 
+004113B2 MOV ECX,3C                    ;ECX=0000003C 
+004113B7 MOV EAX,CCCCCCCC              ;EAX=CCCCCCCC 
+004113BC REP STOS DWORD PTR ES:[EDI]   ;[0018FE40]=0 ECX=00000000, EDI=0018FF30 
+004113BE MOV DWORD PTR SS:[LOCAL.2],0  ;[0018FF28]=CCCCCCCC 
+004113C5 MOV DWORD PTR SS:[LOCAL.5],0  ;[0018FF1C]=CCCCCCCC 
+004113CC MOV DWORD PTR SS:[LOCAL.8],0  ;[0018FF10]=CCCCCCCC 
+004113D3 JMP SHORT 004113DE
+c1______#11                                                                     [15, 18] 15 (15)
+c2_______#8                                                                     [16, 20] 16 (26)
+f1______#47                                                                     [17, 23] 17 (34)
+c1______#11                                                                     [15, 18] 18 (81)
+a21_#2                                                                          [19, 21] 19 (92)
+c2_______#8                                                                     [16, 20] 20 (94)
+a21_#2                                                                          [19, 21] 21 (102)
+00411411 MOV EAX,DEADBEEF              ;EAX=DEADBEEF 
+f1______#47                                                                     [17, 23] 23 (105)
+a16_#2                                                                           (152)
+00411427 MOV ESI,ESP                   ;ESI=0018FE34 
+00411429 MOV EAX,DWORD PTR SS:[LOCAL.5];[0018FF1C]=0000000E (decimal 14.);EAX=0000000E 
+0041142C PUSH EAX                      ;[0018FE30]=2 ESP=0018FE30 
+0041142D MOV ECX,DWORD PTR SS:[LOCAL.2];[0018FF28]=6 ECX=00000006 
+00411430 PUSH ECX                      ;[0018FE2C]=5970E182 (MSVCR90D.__set_flsgetvalue+12);ESP=0018FE2C 
+00411431 PUSH OFFSET 0041573C          ;[0018FE28]=0018FE38 ESP=0018FE28 
+00411436 CALL DWORD PTR DS:[MSVCR90D.printf];[004182BC]=5972AFA0 (MSVCR90D.printf);ESP=0018FE24 
+printf MOV EDI,EDI

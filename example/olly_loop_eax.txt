@@ -1,0 +1,163 @@
+main  004113A0                    PUSH EBP                                [0018FF30]=5970BF1C (MSVCR90D._initterm+1C);ESP=0018FF30
+main  004113A1                    MOV EBP,ESP                                                         EBP=0018FF30
+main  004113A3                    SUB ESP,0F0                                                         ESP=0018FE40
+main  004113A9                    PUSH EBX                                [0018FE3C]=MSVCR90D.5970E670;ESP=0018FE3C
+main  004113AA                    PUSH ESI                                [0018FE38]=0018FE4C         ESP=0018FE38
+main  004113AB                    PUSH EDI                                [0018FE34]=762B123D (kernel32.FlsGetValue);ESP=0018FE34
+main  004113AC                    LEA EDI,[LOCAL.60]                      Address=0018FE40            EDI=0018FE40
+main  004113B2                    MOV ECX,3C                                                          ECX=0000003C
+main  004113B7                    MOV EAX,CCCCCCCC                                                    EAX=CCCCCCCC
+main  004113BC                    REP STOS DWORD PTR ES:[EDI]             [0018FE40]=0                ECX=00000000, EDI=0018FF30
+main  004113BE                    MOV DWORD PTR SS:[LOCAL.2],0            [0018FF28]=CCCCCCCC
+main  004113C5                    MOV DWORD PTR SS:[LOCAL.5],0            [0018FF1C]=CCCCCCCC
+main  004113CC                    MOV DWORD PTR SS:[LOCAL.8],0            [0018FF10]=CCCCCCCC
+main  004113D3                    JMP SHORT 004113DE
+main  004113DE                    CMP DWORD PTR SS:[LOCAL.8],4            [0018FF10]=0
+main  004113E2                    JGE SHORT 00411427
+main  004113E4                    MOV EAX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=0                EAX=00000000
+main  004113E7                    ADD EAX,DWORD PTR SS:[LOCAL.8]          [0018FF10]=0
+main  004113EA                    MOV DWORD PTR SS:[LOCAL.2],EAX          [0018FF28]=0
+main  004113ED                    MOV DWORD PTR SS:[LOCAL.11],0           [0018FF04]=CCCCCCCC
+main  004113F4                    JMP SHORT 004113FF
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=0
+main  00411403                    JGE SHORT 00411418
+main  00411405                    CMP DWORD PTR SS:[LOCAL.8],2            [0018FF10]=0
+main  00411409                    JNE SHORT 00411416
+main  00411416                    JMP SHORT 004113F6
+main  004113F6                    MOV EAX,DWORD PTR SS:[LOCAL.11]         [0018FF04]=0
+main  004113F9                    ADD EAX,1                                                           EAX=00000001
+main  004113FC                    MOV DWORD PTR SS:[LOCAL.11],EAX         [0018FF04]=0
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=1
+main  00411403                    JGE SHORT 00411418
+main  00411405                    CMP DWORD PTR SS:[LOCAL.8],2            [0018FF10]=0
+main  00411409                    JNE SHORT 00411416
+main  00411416                    JMP SHORT 004113F6
+main  004113F6                    MOV EAX,DWORD PTR SS:[LOCAL.11]         [0018FF04]=1
+main  004113F9                    ADD EAX,1                                                           EAX=00000002
+main  004113FC                    MOV DWORD PTR SS:[LOCAL.11],EAX         [0018FF04]=1
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=2
+main  00411403                    JGE SHORT 00411418
+main  00411418                    MOV EAX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=0                EAX=00000000
+main  0041141B                    MOV ECX,DWORD PTR SS:[LOCAL.5]          [0018FF1C]=0
+main  0041141E                    LEA EDX,[EAX+ECX+1]
+main  00411422                    MOV DWORD PTR SS:[LOCAL.5],EDX          [0018FF1C]=0
+main  00411425                    JMP SHORT 004113D5
+main  004113D5                    MOV EAX,DWORD PTR SS:[LOCAL.8]          [0018FF10]=0
+main  004113D8                    ADD EAX,1                                                           EAX=00000001
+main  004113DB                    MOV DWORD PTR SS:[LOCAL.8],EAX          [0018FF10]=0
+main  004113DE                    CMP DWORD PTR SS:[LOCAL.8],4            [0018FF10]=1
+main  004113E2                    JGE SHORT 00411427
+main  004113E4                    MOV EAX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=0                EAX=00000000
+main  004113E7                    ADD EAX,DWORD PTR SS:[LOCAL.8]          [0018FF10]=1                EAX=00000001
+main  004113EA                    MOV DWORD PTR SS:[LOCAL.2],EAX          [0018FF28]=0
+main  004113ED                    MOV DWORD PTR SS:[LOCAL.11],0           [0018FF04]=2
+main  004113F4                    JMP SHORT 004113FF
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=0
+main  00411403                    JGE SHORT 00411418
+main  00411405                    CMP DWORD PTR SS:[LOCAL.8],2            [0018FF10]=1
+main  00411409                    JNE SHORT 00411416
+main  00411416                    JMP SHORT 004113F6
+main  004113F6                    MOV EAX,DWORD PTR SS:[LOCAL.11]         [0018FF04]=0                EAX=00000000
+main  004113F9                    ADD EAX,1                                                           EAX=00000001
+main  004113FC                    MOV DWORD PTR SS:[LOCAL.11],EAX         [0018FF04]=0
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=1
+main  00411403                    JGE SHORT 00411418
+main  00411405                    CMP DWORD PTR SS:[LOCAL.8],2            [0018FF10]=1
+main  00411409                    JNE SHORT 00411416
+main  00411416                    JMP SHORT 004113F6
+main  004113F6                    MOV EAX,DWORD PTR SS:[LOCAL.11]         [0018FF04]=1
+main  004113F9                    ADD EAX,1                                                           EAX=00000002
+main  004113FC                    MOV DWORD PTR SS:[LOCAL.11],EAX         [0018FF04]=1
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=2
+main  00411403                    JGE SHORT 00411418
+main  00411418                    MOV EAX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=1                EAX=00000001
+main  0041141B                    MOV ECX,DWORD PTR SS:[LOCAL.5]          [0018FF1C]=1                ECX=00000001
+main  0041141E                    LEA EDX,[EAX+ECX+1]                                                 EDX=00000003
+main  00411422                    MOV DWORD PTR SS:[LOCAL.5],EDX          [0018FF1C]=1
+main  00411425                    JMP SHORT 004113D5
+main  004113D5                    MOV EAX,DWORD PTR SS:[LOCAL.8]          [0018FF10]=1
+main  004113D8                    ADD EAX,1                                                           EAX=00000002
+main  004113DB                    MOV DWORD PTR SS:[LOCAL.8],EAX          [0018FF10]=1
+main  004113DE                    CMP DWORD PTR SS:[LOCAL.8],4            [0018FF10]=2
+main  004113E2                    JGE SHORT 00411427
+main  004113E4                    MOV EAX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=1                EAX=00000001
+main  004113E7                    ADD EAX,DWORD PTR SS:[LOCAL.8]          [0018FF10]=2                EAX=00000003
+main  004113EA                    MOV DWORD PTR SS:[LOCAL.2],EAX          [0018FF28]=1
+main  004113ED                    MOV DWORD PTR SS:[LOCAL.11],0           [0018FF04]=2
+main  004113F4                    JMP SHORT 004113FF
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=0
+main  00411403                    JGE SHORT 00411418
+main  00411405                    CMP DWORD PTR SS:[LOCAL.8],2            [0018FF10]=2
+main  00411409                    JNE SHORT 00411416
+main  0041140B                    CMP DWORD PTR SS:[LOCAL.11],1           [0018FF04]=0
+main  0041140F                    JNE SHORT 00411416
+main  00411416                    JMP SHORT 004113F6
+main  004113F6                    MOV EAX,DWORD PTR SS:[LOCAL.11]         [0018FF04]=0                EAX=00000000
+main  004113F9                    ADD EAX,1                                                           EAX=00000001
+main  004113FC                    MOV DWORD PTR SS:[LOCAL.11],EAX         [0018FF04]=0
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=1
+main  00411403                    JGE SHORT 00411418
+main  00411405                    CMP DWORD PTR SS:[LOCAL.8],2            [0018FF10]=2
+main  00411409                    JNE SHORT 00411416
+main  0041140B                    CMP DWORD PTR SS:[LOCAL.11],1           [0018FF04]=1
+main  0041140F                    JNE SHORT 00411416
+main  00411411                    MOV EAX,DEADBEEF                                                    EAX=DEADBEEF
+main  00411416                    JMP SHORT 004113F6
+main  004113F6                    MOV EAX,DWORD PTR SS:[LOCAL.11]         [0018FF04]=1                EAX=00000001
+main  004113F9                    ADD EAX,1                                                           EAX=00000002
+main  004113FC                    MOV DWORD PTR SS:[LOCAL.11],EAX         [0018FF04]=1
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=2
+main  00411403                    JGE SHORT 00411418
+main  00411418                    MOV EAX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=3                EAX=00000003
+main  0041141B                    MOV ECX,DWORD PTR SS:[LOCAL.5]          [0018FF1C]=3                ECX=00000003
+main  0041141E                    LEA EDX,[EAX+ECX+1]                                                 EDX=00000007
+main  00411422                    MOV DWORD PTR SS:[LOCAL.5],EDX          [0018FF1C]=3
+main  00411425                    JMP SHORT 004113D5
+main  004113D5                    MOV EAX,DWORD PTR SS:[LOCAL.8]          [0018FF10]=2                EAX=00000002
+main  004113D8                    ADD EAX,1                                                           EAX=00000003
+main  004113DB                    MOV DWORD PTR SS:[LOCAL.8],EAX          [0018FF10]=2
+main  004113DE                    CMP DWORD PTR SS:[LOCAL.8],4            [0018FF10]=3
+main  004113E2                    JGE SHORT 00411427
+main  004113E4                    MOV EAX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=3
+main  004113E7                    ADD EAX,DWORD PTR SS:[LOCAL.8]          [0018FF10]=3                EAX=00000006
+main  004113EA                    MOV DWORD PTR SS:[LOCAL.2],EAX          [0018FF28]=3
+main  004113ED                    MOV DWORD PTR SS:[LOCAL.11],0           [0018FF04]=2
+main  004113F4                    JMP SHORT 004113FF
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=0
+main  00411403                    JGE SHORT 00411418
+main  00411405                    CMP DWORD PTR SS:[LOCAL.8],2            [0018FF10]=3
+main  00411409                    JNE SHORT 00411416
+main  00411416                    JMP SHORT 004113F6
+main  004113F6                    MOV EAX,DWORD PTR SS:[LOCAL.11]         [0018FF04]=0                EAX=00000000
+main  004113F9                    ADD EAX,1                                                           EAX=00000001
+main  004113FC                    MOV DWORD PTR SS:[LOCAL.11],EAX         [0018FF04]=0
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=1
+main  00411403                    JGE SHORT 00411418
+main  00411405                    CMP DWORD PTR SS:[LOCAL.8],2            [0018FF10]=3
+main  00411409                    JNE SHORT 00411416
+main  00411416                    JMP SHORT 004113F6
+main  004113F6                    MOV EAX,DWORD PTR SS:[LOCAL.11]         [0018FF04]=1
+main  004113F9                    ADD EAX,1                                                           EAX=00000002
+main  004113FC                    MOV DWORD PTR SS:[LOCAL.11],EAX         [0018FF04]=1
+main  004113FF                    CMP DWORD PTR SS:[LOCAL.11],2           [0018FF04]=2
+main  00411403                    JGE SHORT 00411418
+main  00411418                    MOV EAX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=6                EAX=00000006
+main  0041141B                    MOV ECX,DWORD PTR SS:[LOCAL.5]          [0018FF1C]=7                ECX=00000007
+main  0041141E                    LEA EDX,[EAX+ECX+1]                                                 EDX=0000000E
+main  00411422                    MOV DWORD PTR SS:[LOCAL.5],EDX          [0018FF1C]=7
+main  00411425                    JMP SHORT 004113D5
+main  004113D5                    MOV EAX,DWORD PTR SS:[LOCAL.8]          [0018FF10]=3                EAX=00000003
+main  004113D8                    ADD EAX,1                                                           EAX=00000004
+main  004113DB                    MOV DWORD PTR SS:[LOCAL.8],EAX          [0018FF10]=3
+main  004113DE                    CMP DWORD PTR SS:[LOCAL.8],4            [0018FF10]=4
+main  004113E2                    JGE SHORT 00411427
+main  00411427                    MOV ESI,ESP                                                         ESI=0018FE34
+main  00411429                    MOV EAX,DWORD PTR SS:[LOCAL.5]          [0018FF1C]=0000000E (decimal 14.);EAX=0000000E
+main  0041142C                    PUSH EAX                                [0018FE30]=2                ESP=0018FE30
+main  0041142D                    MOV ECX,DWORD PTR SS:[LOCAL.2]          [0018FF28]=6                ECX=00000006
+main  00411430                    PUSH ECX                                [0018FE2C]=5970E182 (MSVCR90D.__set_flsgetvalue+12);ESP=0018FE2C
+main  00411431                    PUSH OFFSET 0041573C                    [0018FE28]=0018FE38         ESP=0018FE28
+main  00411436                    CALL DWORD PTR DS:[<&MSVCR90D.printf>]  [004182BC]=5972AFA0 (MSVCR90D.printf);ESP=0018FE24
+main  printf                      MOV EDI,EDI
+--------  Logging stopped
+
