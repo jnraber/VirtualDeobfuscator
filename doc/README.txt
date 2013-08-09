@@ -30,8 +30,6 @@ Mac and Linux:
 
 2 - LXML 
 --------
-This is optional, but it can make parsing large files faster.
-
 Windows:
   Get the current lxml package from https://pypi.python.org/pypi/lxml/. Make
   sure to get the one that patches your python install (2.7, 32- or 64-bit).

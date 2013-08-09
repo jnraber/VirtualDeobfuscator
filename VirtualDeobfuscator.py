@@ -67,15 +67,8 @@ def pre_run(isClustering, testfile):
         if os.path.exists(testfile):
             os.remove(testfile)
 
-    try:
-        # use lxml if it's available -- faster
-        from lxml import etree
-        print("- running with lxml.etree")
-    except ImportError:
-        # Python 2.5
-        import xml.etree.cElementTree as etree
-        print("- running with cElementTree on Python 2.5+")
-
+    # use lxml if it's available -- faster
+    from lxml import etree
     return etree
 
 #------------------------------------------------------------------------------
