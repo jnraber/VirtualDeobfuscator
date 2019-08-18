@@ -1245,10 +1245,12 @@ def format_ins_trace(va, mnem, thread, regs, dbgr):
 
     # Columbo
     if dbgr == utils.COLUMBO:
+        if thread == "Unknown":
+            thread = ""
         if regs == "None":
             out_s = va + " " + mnem + "\n"
         else:
-            out_s = va + " " +  mnem.ljust(30) + ";" + regs + "\n"
+            out_s = va + " " +  mnem.ljust(30) + regs + "\n"
             
     # Olly 2.0
     elif dbgr == utils.OLLY:
@@ -1375,10 +1377,23 @@ def format_ins_asm(ins, thread, regs, dbgr):
 
     # Columbo
     if dbgr == utils.COLUMBO:
+        # special case for immunity
+        # 636BBC56 Main  PUSH MSVCR90D.636F60B0
+        pos = ins.find(".")
+        if pos != -1:
+            ins = mnem + " " + ins[pos+1:]
+
+        # LEA EAX,DWORD PTR DS:[EDI+EAX*4]  get rid of DWORD as NASM complains
+        # of a mismatch in operand size
+        if mnem == 'LEA':
+           ins = ins.replace('DWORD', '')
+
+        if thread == "Unknown":
+            thread = ""
         if regs == "None":
             out_s = leading_spaces + ins + "\n"
         else:
-            out_s = leading_spaces + ins.ljust(30) + ";" + regs + "\n"
+            out_s = leading_spaces + ins.ljust(30) + regs + "\n"
             
     # Olly 2.0
     elif dbgr == utils.OLLY:
