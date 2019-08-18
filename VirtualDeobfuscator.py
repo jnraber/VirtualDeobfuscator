@@ -15,7 +15,8 @@
 # Virtual Deobfusctor. If not, see http://www.gnu.org/licenses/.
 # Notes:
 # Make sure to install Python package lxml http://lxml.de/installation.html
-# Python 2.7
+#     > pip install lxml
+# Python 2.7.16
 #------------------------------------------------------------------------------
 
 import os
@@ -41,6 +42,8 @@ def hdr(isClustering, dbgr, test_file):
 
     if isClustering == False:
         print "Parsing"
+        if dbgr == u.COLUMBO:
+            sys.stdout.write("- runtrace for Columbo")
         if dbgr == u.OLLY:
             sys.stdout.write("- runtrace for OllyDbg 2.0")
         elif dbgr == u.IMMUNITY:
@@ -82,6 +85,48 @@ def pre_run(isClustering, testfile):
     from lxml import etree
     return etree
 
+#------------------------------------------------------------------------------
+# Columbo - Parse this runtrace format
+# format: ['main', '0040106D', 'PUSH', 'OFFSET', '004021C8', 'ESP=0018FF84']
+#          thread | virtual addr | instruction | effect on registers
+#------------------------------------------------------------------------------
+def parse_Columbo(db_file, line, etree):
+
+    # remove special characters that would hose up the xml output (<, >, &)
+    line = re.sub(r'[\<\>\&]', "", line)
+    line = filter(lambda x: x in string.printable, line)
+
+    # remove whitespaces
+    # i.e Columbo output
+    # main  0040108D    PUSH EBX              ESP=0018FF54
+    # becomes
+    # ['main', '0040106D', 'PUSH', 'OFFSET', '004021C8', 'ESP=0018FF84']
+    ins_lst = line.strip().split()
+    if len(ins_lst) == 0:
+        return
+
+    # assign fields
+    thread = ins_lst[0]
+    va     = ins_lst[1]
+
+    registers = ""
+
+    # look for register effects of instruction.  The delimeter to look for is
+    # = or ; otherwise it is part of the mnem
+    cnt = 3
+    mnemonic = ins_lst[2] # at this pos it is a mnem...now grab the rest of op
+    for item in ins_lst[3:]:
+        if item.find(";") != -1 or item.find("=") != -1:
+            for x in ins_lst[cnt:]:
+               registers += x + " "
+            break
+        else:
+            mnemonic += " " + item
+
+        cnt += 1
+
+    create_xml(db_file, etree, thread, va, mnemonic, registers)
+    
 #------------------------------------------------------------------------------
 # OllyDbg 2.0 - Parse this runtrace format
 # format: ['main', '0040106D', 'PUSH', 'OFFSET', '004021C8', 'ESP=0018FF84']
@@ -319,7 +364,13 @@ def read_xml(etree, testfile, dbgr, cluster):
                 regs = elem.text
                 # now print out to our outfile to test correctness
                 if testfile != "":
-                    if dbgr == u.OLLY:
+                    if dbgr == u.COLUMBO:
+                        if regs == "None":
+                            out_s = thread + " " + va + " " + mnem + "\n"
+                        else:
+                            out_s = thread + " " + va + " " + mnem + " " \
+                                    + regs + "\n"
+                    elif dbgr == u.OLLY:
                         if regs == "None":
                             out_s = thread + " " + va + " " + mnem + "\n"
                         else:
@@ -528,8 +579,8 @@ Example:
     import_args.add_argument(
         '-i', '--ifile', help='A runtrace file created by a debugger')
     import_args.add_argument(
-        '-d', '--debugger', help='Debugger: 1 = Olly 2.0, 2 = Immunity/Olly '
-        '1.0, 3 = WinDbg', type=int, choices=(1, 2, 3))
+        '-d', '--debugger', help='Debugger: 0 = Columbo, 1 = Olly 2.0, '
+        '2 = Immunity/Olly 1.0, 3 = WinDbg', type=int, choices=(0, 1, 2, 3))
     import_args.add_argument(
         '-t', '--testXML', help='A test file that can be used to verify trace '
         'file conversion to XML', default='')
@@ -575,8 +626,8 @@ clustering mode (-c).''')
             u.vd_error("No such runtrace file: " + runtrace)
 
         if dbgr > 3:
-            u.vd_error("Unknown <debugger>: supported OllyDbg 2.0 = 1, " \
-                     "Immunity = 2, WinDbg = 3")
+            u.vd_error("Unknown <debugger>: supported Columbo = 0, " \
+                       "OllyDbg 2.0 = 1, Immunity = 2, WinDbg = 3")
 
         #----------------------------------------------------------------------
         # generate intermediate representation file of runtrace...used for
@@ -619,8 +670,27 @@ clustering mode (-c).''')
                 line = line.strip("\n")
 
                 #--------------------------------------------------------------
+                # Columbo
+                if dbgr == u.COLUMBO:
+                    # check for end of runtrace
+                    if line == "--------  End of session" or \
+                       line == "--------  Logging stopped":
+                        break
+
+                    if line_len < 38:
+                        print "\nIll formed line: ", line, line_cnt
+                        print "Use option -x to remove bad lines from runtrace"
+                        u.vd_error("PLEASE Fix line to continue")
+
+                    if line_cnt == 1:
+                        tmp_lst = line.strip().split()
+                        # the first string should be <thread> i.e. 'main'
+                        if tmp_lst[0] == "Address":
+                            u.vd_error("Incorrect runtrace format for Columbo")
+                    parse_Columbo(db_file, line, etree)
+                #--------------------------------------------------------------
                 # OllyDbg 2.0
-                if dbgr == u.OLLY:
+                elif dbgr == u.OLLY:
                     # check for end of runtrace
                     if line == "--------  End of session" or \
                        line == "--------  Logging stopped":
