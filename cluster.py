@@ -1243,8 +1243,15 @@ def unfold_single_clusters(round):
 #------------------------------------------------------------------------------
 def format_ins_trace(va, mnem, thread, regs, dbgr):
 
+    # Columbo
+    if dbgr == utils.COLUMBO:
+        if regs == "None":
+            out_s = va + " " + mnem + "\n"
+        else:
+            out_s = va + " " +  mnem.ljust(30) + ";" + regs + "\n"
+            
     # Olly 2.0
-    if dbgr == utils.OLLY:
+    elif dbgr == utils.OLLY:
         if regs == "None":
             out_s = va + " " + mnem + "\n"
         else:
@@ -1366,8 +1373,15 @@ def format_ins_asm(ins, thread, regs, dbgr):
 
             ins = mnem + " " + utils.replace_all(operands[1], utils.ST_REG)
 
+    # Columbo
+    if dbgr == utils.COLUMBO:
+        if regs == "None":
+            out_s = leading_spaces + ins + "\n"
+        else:
+            out_s = leading_spaces + ins.ljust(30) + ";" + regs + "\n"
+            
     # Olly 2.0
-    if dbgr == utils.OLLY:
+    elif dbgr == utils.OLLY:
         if regs == "None":
             out_s = leading_spaces + ins + "\n"
         else:
