@@ -1243,8 +1243,8 @@ def unfold_single_clusters(round):
 #------------------------------------------------------------------------------
 def format_ins_trace(va, mnem, thread, regs, dbgr):
 
-    # Columbo
-    if dbgr == utils.COLUMBO:
+    # HexTrace
+    if dbgr == utils.HEXTRACE:
         if thread == "Unknown":
             thread = ""
         if regs == "None":
@@ -1375,8 +1375,8 @@ def format_ins_asm(ins, thread, regs, dbgr):
 
             ins = mnem + " " + utils.replace_all(operands[1], utils.ST_REG)
 
-    # Columbo
-    if dbgr == utils.COLUMBO:
+    # HEXTRACE
+    if dbgr == utils.HEXTRACE:
         # special case for immunity
         # 636BBC56 Main  PUSH MSVCR90D.636F60B0
         pos = ins.find(".")

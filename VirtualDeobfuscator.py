@@ -42,8 +42,8 @@ def hdr(isClustering, dbgr, test_file):
 
     if isClustering == False:
         print "Parsing"
-        if dbgr == u.COLUMBO:  # Runtrace modeled after Immunity
-            sys.stdout.write("- runtrace for Columbo")
+        if dbgr == u.HEXTRACE:  # Runtrace modeled after Immunity
+            sys.stdout.write("- runtrace for HEXTRACE")
         if dbgr == u.OLLY:
             sys.stdout.write("- runtrace for OllyDbg 2.0")
         elif dbgr == u.IMMUNITY:
@@ -86,10 +86,10 @@ def pre_run(isClustering, testfile):
     return etree
 
 #------------------------------------------------------------------------------
-# Columbo - Parse this runtrace format
+# HEXTRACE - Parse this runtrace format
 # format:   virtual addr | thread | instruction | effect on registers and cmts
 #------------------------------------------------------------------------------
-def parse_Columbo(db_file, line, etree):
+def parse_HEXTRACE(db_file, line, etree):
 
     # remove special characters that would hose up the xml output (<, >, &)
     line = re.sub(r'[\>\<\&]', " ", line)
@@ -367,7 +367,7 @@ def read_xml(etree, testfile, dbgr, cluster):
                 regs = elem.text
                 # now print out to our outfile to test correctness
                 if testfile != "":
-                    if dbgr == u.COLUMBO:
+                    if dbgr == u.HEXTRACE:
                         if thread == 'Unknown':
                             thread = ""
                         if regs == "None":
@@ -584,7 +584,7 @@ Example:
     import_args.add_argument(
         '-i', '--ifile', help='A runtrace file created by a debugger')
     import_args.add_argument(
-        '-d', '--debugger', help='Debugger: 0 = Columbo, 1 = Olly 2.0, '
+        '-d', '--debugger', help='Debugger: 0 = HEXTRACE, 1 = Olly 2.0, '
         '2 = Immunity/Olly 1.0, 3 = WinDbg', type=int, choices=(0, 1, 2, 3))
     import_args.add_argument(
         '-t', '--testXML', help='A test file that can be used to verify trace '
@@ -631,7 +631,7 @@ clustering mode (-c).''')
             u.vd_error("No such runtrace file: " + runtrace)
 
         if dbgr > 3:
-            u.vd_error("Unknown <debugger>: supported Columbo = 0, " \
+            u.vd_error("Unknown <debugger>: supported HEXTRACE = 0, " \
                        "OllyDbg 2.0 = 1, Immunity = 2, WinDbg = 3")
 
         #----------------------------------------------------------------------
@@ -675,8 +675,8 @@ clustering mode (-c).''')
                 line = line.strip("\n")
 
                 #--------------------------------------------------------------
-                # Columbo
-                if dbgr == u.COLUMBO:
+                # HEXTRACE
+                if dbgr == u.HEXTRACE:
                     # check for end of runtrace
                     if line == "    Run trace closed" or \
                        line.find("Process terminated") != -1:
@@ -693,7 +693,7 @@ clustering mode (-c).''')
                         if line.find('Address') == -1:
                             u.vd_error("Incorrect runtrace format for Immunity")
                         continue
-                    parse_Columbo(db_file, line, etree)
+                    parse_HEXTRACE(db_file, line, etree)
                 #--------------------------------------------------------------
                 # OllyDbg 2.0
                 elif dbgr == u.OLLY:
