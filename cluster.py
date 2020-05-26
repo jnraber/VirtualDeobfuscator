@@ -214,7 +214,7 @@ def add_cluster_id(round, window_sz, cluster_id, isGreedy=False):
         if isGreedy:
             return val[0][1] # return the cluster id
         else:
-            print "<!> must have a unique cluster id ", cluster_id
+            print ("<!> must have a unique cluster id ", cluster_id)
             utils.vd_error("Internal error - add_cluster_id()")
 
 
@@ -484,7 +484,7 @@ def compress_basic_blocks_loop(round):
 
     sys.stdout.write("Compressing basic blocks")
 
-    sorted_dict = OrderedDict(sorted(freq_graph.iteritems()))
+    sorted_dict = OrderedDict(sorted(freq_graph.items()))
 
     found_cnt = 0
     idx       = 0
@@ -499,9 +499,9 @@ def compress_basic_blocks_loop(round):
         # make sure we don't exceed our list
         if cluster_len > idx + 1:
 
-            prev_cluster        = sorted_dict.keys()[idx]
+            prev_cluster        = list(sorted_dict.keys())[idx]
             prev_cluster_lst    = freq_graph[prev_cluster]
-            cur_cluster         = sorted_dict.keys()[idx+1]
+            cur_cluster         = list(sorted_dict.keys())[idx + 1]
             cur_cluster_lst     = freq_graph[cur_cluster]
             #print "\nprev ", idx, prev_cluster
             #print "curr ", idx + 1, cur_cluster
@@ -623,7 +623,7 @@ def compress_create_new_cluster(round):
 
     del new_cluster_lst[:]
 
-    print "Create clustering..."
+    print ("Create clustering...")
 
     line_num = len(cluster_lst)
     idx = 0
@@ -648,7 +648,7 @@ def compress_create_new_cluster(round):
             # that key will not be located in the window
             idx += win_sz
         except:
-            print "id, idx: ", id, idx
+            print ("id, idx: ", id, idx)
             utils.vd_error("idx out of range - compress_create_new_cluster()")
 
 
@@ -664,7 +664,7 @@ def build_freq_graph(round):
 
     cluster_name = utils.id_round[round] + "_" + "cluster"  + ".txt"
 
-    print "\nBuilding frequency graph from: [" + cluster_name + "]"
+    print ("\nBuilding frequency graph from: [" + cluster_name + "]")
 
     for linenum, cluster in enumerate(cluster_lst):
         add_freq(cluster, linenum)
@@ -684,7 +684,7 @@ def read_backtrace(isAll, isHashed, round):
     else:
         cluster_name = utils.id_round[round] + "_backtrace.txt"
 
-    print "- reading backtrace file: " + cluster_name
+    print ("- reading backtrace file: " + cluster_name)
 
     try:
         ifile = open(cluster_name, "r")
@@ -785,7 +785,7 @@ def backtrace_all(round):
 
             str_out += "\n"
 
-    print "- writing " + tbl_name
+    print ("- writing " + tbl_name)
     ofile.writelines(str_out)
 
     ofile.close()
@@ -811,7 +811,7 @@ def greedy_backtrace(round, print_screen):
     global bt_greedy
     global cluster_lst
 
-    print "Greedy backtrace - Verification of new cluster "
+    print ("Greedy backtrace - Verification of new cluster ")
 
     if print_screen == False:
         name = utils.id_round[round] + "_backtrace.txt"
@@ -827,7 +827,7 @@ def greedy_backtrace(round, print_screen):
             # no key for item so it is unique.  Just print it out
             str_out = cluster + " " + cluster
             if print_screen:
-                print str_out
+                print (str_out)
             else:
                 str_out += "\n"
                 ofile.writelines(str_out)
@@ -839,13 +839,13 @@ def greedy_backtrace(round, print_screen):
         cur_cluster = tup[1]
         str_out = cluster + " " + prev_cluster + " " + cur_cluster
         if print_screen:
-            print str_out
+            print (str_out)
         else:
             str_out += "\n"
             ofile.writelines(str_out)
 
     if print_screen == False:
-        print "   - " + name
+        print ("   - " + name)
         ofile.close()
 
 #------------------------------------------------------------------------------
@@ -876,7 +876,7 @@ def compress_backtrace(round, print_screen):
     global cluster_lst
     global new_cluster_lst
 
-    print "Backtrace - Verification of new cluster "
+    print ("Backtrace - Verification of new cluster ")
 
     if print_screen == False:
         tbl_name = utils.id_round[round] + "_backtrace.txt"
@@ -918,13 +918,13 @@ def compress_backtrace(round, print_screen):
                 cnt += 1
 
         if print_screen == True:
-            print str_out
+            print (str_out)
         else:
             str_out += "\n"
             ofile.writelines(str_out)
 
     if print_screen == False:
-        print "   - " + tbl_name
+        print ("   - " + tbl_name)
         ofile.close()
 
 
@@ -949,7 +949,7 @@ def print_tbl(round, tbl, tbl_type, print_screen, out_type, nested):
         else:
             prefix_str = "   - " + tbl_name
 
-    print prefix_str
+    print (prefix_str)
 
     if print_screen == False:
         try:
@@ -960,10 +960,10 @@ def print_tbl(round, tbl, tbl_type, print_screen, out_type, nested):
     cnt = 0
 
     if out_type == utils.DEFAULT_DICT:
-        for k,v in tbl.iteritems():
+        for k, v in tbl.items():
             out_str = str(k) + " - " + str(v)
             if print_screen:
-                print out_str
+                print (out_str)
             else:
                 out_str += "\n"
                 ofile.writelines(out_str)
@@ -971,7 +971,7 @@ def print_tbl(round, tbl, tbl_type, print_screen, out_type, nested):
         for i in tbl:
             out_str = str(cnt) + " - " + i
             if print_screen:
-                print out_str
+                print (out_str)
             else:
                 out_str += "\n"
                 ofile.writelines(out_str)
@@ -987,11 +987,11 @@ def print_compress_window(round, print_screen):
     global window
 
     if print_screen:
-        print "\nPrinting window/new cluster table"
+        print ("\nPrinting window/new cluster table")
     else:
-        print "\nWriting window/new cluster table"
+        print ("\nWriting window/new cluster table")
 
-    sorted_dict = OrderedDict(sorted(window.iteritems()))
+    sorted_dict = OrderedDict(sorted(window.items()))
 
     print_tbl(round, sorted_dict, "window_sz", print_screen,
               utils.DEFAULT_DICT, True)
@@ -1016,11 +1016,11 @@ def print_compress_backtrace(round, print_screen):
     global bt_window
 
     if print_screen:
-        print "Printing compression backtrace "
+        print ("Printing compression backtrace ")
     else:
-        print "Writing compression backtrace "
+        print ("Writing compression backtrace ")
 
-    sorted_dict = OrderedDict(sorted(bt_window.iteritems()))
+    sorted_dict = OrderedDict(sorted(bt_window.items()))
 
     print_tbl(round, sorted_dict, "bt_win_sz", print_screen,
               utils.DEFAULT_DICT, True)
@@ -1032,11 +1032,11 @@ def print_greedy_backtrace(round, print_screen):
     global bt_greedy
 
     if print_screen:
-        print "Printing greedy backtrace "
+        print ("Printing greedy backtrace ")
     else:
-        print "Writing greedy backtrace "
+        print ("Writing greedy backtrace ")
 
-    sorted_dict = OrderedDict(sorted(bt_greedy.iteritems()))
+    sorted_dict = OrderedDict(sorted(bt_greedy.items()))
 
     print_tbl(round, sorted_dict, "bt_greedy", print_screen,
               utils.DEFAULT_DICT, True)
@@ -1048,16 +1048,16 @@ def print_freq_graph(round, print_screen):
     global freq_graph
 
     if print_screen:
-        print "Printing frequency graph "
+        print ("Printing frequency graph ")
     else:
-        print "Writing frequency graph "
+        print ("Writing frequency graph ")
 
     # freq_graph = OrderedDict(sorted(freq_graph.iteritems()))
     # I tried this and it causes a 'KeyError'
     # I don't want to assign the OrderedDict sorted to freq_graph b/c it
     # changes the freq_graph from defaultdict to an OrderedDict with will screw
     # up using that list in the future
-    sorted_dict = OrderedDict(sorted(freq_graph.iteritems()))
+    sorted_dict = OrderedDict(sorted(freq_graph.items()))
 
     print_tbl(round, sorted_dict, "freq", print_screen, utils.DEFAULT_DICT,
               True)
@@ -1072,9 +1072,9 @@ def print_freq_graph(round, print_screen):
 def validate_backtrace_all(print_screen):
 
     if print_screen:
-        print "Printing backtrace for validation "
+        print ("Printing backtrace for validation ")
     else:
-        print "Writing backtrace for validation: " + utils.VALIDATE_FILE
+        print ("Writing backtrace for validation: " + utils.VALIDATE_FILE)
 
     bt      = []
     cnt     = 0
@@ -1113,7 +1113,7 @@ def validate_backtrace_all(print_screen):
         for x, linenum in enumerate(lst):
             str_out = str(cnt) + " - " + linenum
             if print_screen == True:
-                print str_out
+                print (str_out)
             else:
                 str_out += "\n"
                 ofile.writelines(str_out)
@@ -1130,9 +1130,9 @@ def print_cluster(round, print_screen):
     global cluster_lst
 
     if print_screen:
-        print "\n* Printing new cluster "
+        print ("\n* Printing new cluster ")
     else:
-        print "\n* Writing new cluster "
+        print ("\n* Writing new cluster ")
 
     print_tbl(round, cluster_lst, "cluster", print_screen, utils.LIST, True)
 
@@ -1180,7 +1180,7 @@ def unfold_single_clusters(round):
     unfolded_cluster_lst = []
     found = False
 
-    print "\nUnfold single clusters\n"
+    print ("\nUnfold single clusters\n")
 
     for cluster in new_cluster_lst:
       if utils.is_number_hex(cluster):
@@ -1214,7 +1214,7 @@ def unfold_single_clusters(round):
                     # find our single cluster, and unfold it
                     if cluster_id == cluster:
                         found = True
-                        print "<<<< unfolded cluster:", cluster_id, lst
+                        print ("<<<< unfolded cluster:", cluster_id, lst)
                         for x in lst:
                             unfolded_cluster_lst.append(x)
 
@@ -1234,7 +1234,7 @@ def unfold_single_clusters(round):
         print_tbl(round, unfolded_cluster_lst, "cluster", False, utils.LIST,
                   True)
     else:
-        print "   - no more unfolding"
+        print ("   - no more unfolding")
 
     return found
 
@@ -1468,8 +1468,8 @@ def final_assembly(round, etree, dbgr):
 
     out_s = ""
 
-    print "\n"
-    print "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+    print ("\n")
+    print ("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
     sys.stdout.write("Final assembly - final_assembly.txt")
 
     ofile_name = "final_assembly.txt"
@@ -1528,7 +1528,7 @@ def final_assembly(round, etree, dbgr):
                         try:
                             item = new_cluster_lst[next_item]
                         except:
-                            print "next_item: ", next_item
+                            print ("next_item: ", next_item)
                             utils.vd_error("idx out of range-final_assembly()")
 
                         # system calls - make a divider to easily see the
