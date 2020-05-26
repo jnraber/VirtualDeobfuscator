@@ -23,6 +23,8 @@ import os
 import string
 import sys
 import re
+
+import utils
 import utils as u
 import cluster
 import argparse
@@ -41,7 +43,7 @@ def hdr(isClustering, dbgr, test_file):
     etree = pre_run(isClustering, test_file)
 
     if isClustering == False:
-        print "Parsing"
+        print ("Parsing")
         if dbgr == u.HEXTRACE:  # Runtrace modeled after Immunity
             sys.stdout.write("- runtrace for HEXTRACE")
         elif dbgr == u.OLLY:
@@ -51,7 +53,7 @@ def hdr(isClustering, dbgr, test_file):
         elif dbgr == u.WINDBG:
             sys.stdout.write("- runtrace for WinDbg")
         else:
-            print "!! Unknown debugger run trace"
+            print( "!! Unknown debugger run trace")
 
     return etree
 
@@ -59,9 +61,9 @@ def hdr(isClustering, dbgr, test_file):
 # Footer
 #------------------------------------------------------------------------------
 def footer(cnt):
-    print "\n----------------------------------------------------------------"
-    print "lines parsed " + str(cnt)
-    print "----------------------------------------------------------------"
+    print ("\n----------------------------------------------------------------")
+    print ("lines parsed " + str(cnt))
+    print ("----------------------------------------------------------------")
 
 #------------------------------------------------------------------------------
 # Pre Run.  Load appropriate packages etc. XML parser
@@ -69,10 +71,11 @@ def footer(cnt):
 def pre_run(isClustering, testfile):
 
     # check version of python running
-    if not sys.version_info[:2] == (2, 7):
+    '''    if not sys.version_info[:2] == (2, 7):
         u.vd_error("U need python 2.7 installed to run Virtual Deobfuscator")
+    '''
 
-    print "\nLoading packages..."
+    print ("\nLoading packages...")
 
     # clean up Virtual Deob database and testing file
     if isClustering == False:
@@ -136,7 +139,6 @@ def parse_OllyDbg_20(db_file, line, etree):
 
     # remove special characters that would hose up the xml output (<, >, &)
     line = re.sub(r'[\<\>\&]', "", line)
-    line = filter(lambda x: x in string.printable, line)
 
     # remove whitespaces
     # i.e OllyDbg output
@@ -144,6 +146,8 @@ def parse_OllyDbg_20(db_file, line, etree):
     # becomes
     # ['main', '0040106D', 'PUSH', 'OFFSET', '004021C8', 'ESP=0018FF84']
     ins_lst = line.strip().split()
+
+
     if len(ins_lst) == 0:
         return
 
@@ -297,7 +301,7 @@ def create_xml(db_file, etree, thread, viraddr, mnemonic, registers):
     #print(etree.tostring(ins, pretty_print=True))
     #print(etree.tostring(ins))
 
-    db_file.writelines(etree.tostring(ins))
+    db_file.writelines(str(etree.tostring(ins)))
     db_file.writelines("\n")
 
     create_xml.ins_cnt += 1
@@ -314,7 +318,7 @@ def read_xml(etree, testfile, dbgr, cluster):
     out_s = ""
     test_file = ""
 
-    print "\nread_xml"
+    print ("\nread_xml")
 
     # for verification that we read the vd.xml the user used '-t testXML.txt'
     if testfile != "":
@@ -356,7 +360,7 @@ def read_xml(etree, testfile, dbgr, cluster):
             elif elem.tag == 'mnem':
                 mnem = elem.text
                 if not mnem:
-                    print va, thread
+                    print (va, thread)
                     utils.vd_error("ill formed line - fix before creating " \
                                    "database vd.xml")
 
@@ -429,7 +433,7 @@ def create_IR(runtrace):
     if os.path.exists(IR_FILE):
         os.remove(IR_FILE)
 
-    print ""
+    print ("")
     sys.stdout.write("formating runtrace for Virtual Deobfuscator > %s " \
                      % IR_FILE)
 
@@ -484,12 +488,12 @@ def build_complete_backtrace(round, cluster):
         try:
             os.remove(u.VALIDATE_FILE)
         except:
-            print "no " + u.VALIDATE_FILE
+            print ("no " + u.VALIDATE_FILE)
 
     if round > 0:
-        print "Create Complete Backtrace"
+        print ("Create Complete Backtrace")
         while round_idx:
-            print "- [round " + str(round_idx) + "]"
+            print ("- [round " + str(round_idx) + "]")
             cluster.backtrace_all(round_idx)
             round_idx -= 1
         cluster.validate_backtrace_all(False)
@@ -523,7 +527,7 @@ def reformat_rt(runtrace):
         #line = line.strip("\n")
 
         if line_len < 38:
-            print "\nSkipping ill formed line: ", line, line_cnt
+            print ("\nSkipping ill formed line: ", line, line_cnt)
             continue
         else:
             new_rt.writelines(line)
@@ -536,10 +540,10 @@ def reformat_rt(runtrace):
 #------------------------------------------------------------------------------
 def main():
 
-    print "\n------------------------------------------------------------------"
-    print "|                  Virtual Deobfuscator ver 1.0                  |"
-    print "|                            HexEffect                           |"
-    print "------------------------------------------------------------------\n"
+    print ("\n------------------------------------------------------------------")
+    print ("|                  Virtual Deobfuscator ver 1.0                  |")
+    print ("|                            HexEffect                           |")
+    print ("------------------------------------------------------------------\n")
 
     run_clustering = False
     cleanup_rt     = False  # clean up runtrace of ill formated lines
@@ -678,8 +682,8 @@ clustering mode (-c).''')
                         break
 
                     if line_len < 38:
-                        print "\nIll formed line: ", line, line_cnt
-                        print "Use option -x to remove bad lines from runtrace"
+                        print ("\nIll formed line: ", line, line_cnt)
+                        print ("Use option -x to remove bad lines from runtrace")
                         u.vd_error("PLEASE Fix line to continue")
 
                     if line_cnt == 1:
@@ -698,8 +702,8 @@ clustering mode (-c).''')
                         break
 
                     if line_len < 38:
-                        print "\nIll formed line: ", line, line_cnt
-                        print "Use option -x to remove bad lines from runtrace"
+                        print( "\nIll formed line: ", line, line_cnt)
+                        print ("Use option -x to remove bad lines from runtrace")
                         u.vd_error("PLEASE Fix line to continue")
 
                     if line_cnt == 1:
@@ -717,7 +721,7 @@ clustering mode (-c).''')
                         break
 
                     if line_len < 21:
-                        print "\nSkipping ill formed line: ", line, line_cnt
+                        print ("\nSkipping ill formed line: ", line, line_cnt)
                         u.vd_error("PLEASE Fix line to continue")
 
                     # Skip first line for Immunity runtrace
@@ -736,7 +740,7 @@ clustering mode (-c).''')
                         break
 
                     if line_len < 45:
-                        print "\nSkipping ill formed line: ", line, line_cnt
+                        print ("\nSkipping ill formed line: ", line, line_cnt)
                         u.vd_error("PLEASE Fix line to continue")
 
                     # Skip two lines for WinDbg runtrace
