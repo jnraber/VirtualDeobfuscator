@@ -34,8 +34,7 @@ LIST         = 2
 BT_ALL_FILE     = "all_backtrace.txt"
 VALIDATE_FILE   = "validate.txt"
 FORMATTED_FILE  = "rt_formatted.txt"
-
-gen_ids = lambda(x): "".join(map(chr, (ord('a')+(y%26) for y in range(x))))
+gen_ids = lambda x: "".join(map(chr, (ord('a')+(y%26) for y in range(x))))
 id_round = gen_ids(26) + '0123456789'
 
 divider = "------------------------------------------------------------------" \
@@ -51,7 +50,7 @@ ST_REG = {"ST(0)": "ST0", "ST(1)": "ST1", "ST(2)": "ST2", \
 # Error
 #------------------------------------------------------------------------------
 def vd_error(msg):
-    print "\n<!> " + msg
+    print ("\n<!> " + msg)
     sys.exit(2)
 
 
